@@ -28,13 +28,14 @@ spec:
 apiVersion: fleet.cattle.io/v1alpha1
 kind: Bundle
 metadata:
-  name: fluent-bit-bundle
+  name: fluent-bit
   namespace: fleet-logging
 spec:
   helm:
-    releaseName: fluent-bit
-    repo: https://fluent.github.io/helm-charts
+    #releaseName: fluent-bit
     chart: fluent-bit
+    repo: https://fluent.github.io/helm-charts
+    version: "0.39.0"
     values:
       service:
         type: ClusterIP
