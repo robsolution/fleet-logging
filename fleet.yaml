@@ -1,17 +1,16 @@
 defaultNamespace: fleet-logging
 helm:
-  chart: fluent-bit
+  releaseName: fluent-bit
   repo: https://fluent.github.io/helm-charts
+  chart: fluent-bit
   version: "0.39.0"
-#targetCustomizations:
-#- name: gke-syseng-dev-01
-#  clusterSelector:
-#    matchLabels:
-#      env: dev
-#      service: infrastructure
-#      location: gcp
-  helm:
-    valuesFiles:
-      - values/values.yaml
-      - values/gcp.yaml
-#      - values/gke-syseng-dev-01.yaml
+  values:
+    service:
+      type: ClusterIP
+    input:
+      tail:
+        path: /var/log/containers/*.log
+    output:
+      graylog:
+        host: graylog-master.default.svc.cluster.local
+        port: 9200
