@@ -1,8 +1,8 @@
-defaultNamespace: fleet-logging
-helm:
-  chart: fluent-bit
-  repo: https://fluent.github.io/helm-charts
-  version: "0.39.0"
+#defaultNamespace: fleet-logging
+#helm:
+#  chart: fluent-bit
+#  repo: https://fluent.github.io/helm-charts
+#  version: "0.39.0"
 #targetCustomizations:
 #- name: gke-syseng-dev-01
 #  clusterSelector:
@@ -10,8 +10,40 @@ helm:
 #      env: dev
 #      service: infrastructure
 #      location: gcp
-  helm:
-    valuesFiles:
-      - values/values.yaml
+#  helm:
+#    valuesFiles:
+#      - values/values.yaml
 #      - values/gcp.yaml
 #      - values/gke-syseng-dev-01.yaml
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: fluent-bit
+  namespace: fleet-logging
+spec:
+  repo: https://github.com/fluent/fluent-bit-kubernetes-logging
+  paths:
+    - fluent-bit/
+  targets:
+    - clusterSelector: {} # Isso irá selecionar todos os clusters
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: Bundle
+metadata:
+  name: fluent-bit-bundle
+  namespace: fleet-logging
+spec:
+  helm:
+    releaseName: fluent-bit
+    repo: https://fluent.github.io/helm-charts
+    chart: fluent-bit
+    values:
+      service:
+        type: ClusterIP
+      input:
+        tail:
+          path: "/var/log/containers/*.log"
+      output:
+        es:
+          host: graylog-master.default
+          port: 9200
