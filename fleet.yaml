@@ -10,8 +10,8 @@ helm:
 #      env: dev
 #      service: infrastructure
 #      location: gcp
-#  helm:
-#    valuesFiles:
-#      - values/default.yaml
+  helm:
+    valuesFiles:
+      - values/values.yaml
 #      - values/gcp.yaml
 #      - values/gke-syseng-dev-01.yaml
