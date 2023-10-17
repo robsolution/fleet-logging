@@ -24,25 +24,3 @@ spec:
   repo: https://github.com/fluent/fluent-bit-kubernetes-logging
   targets:
     - clusterSelector: {} # Isso irá selecionar todos os clusters
----
-apiVersion: fleet.cattle.io/v1alpha1
-kind: Bundle
-metadata:
-  name: fluent-bit
-  namespace: fleet-logging
-spec:
-  helm:
-    #releaseName: fluent-bit
-    chart: fluent-bit
-    repo: https://fluent.github.io/helm-charts
-    version: "0.39.0"
-    values:
-      service:
-        type: ClusterIP
-      input:
-        tail:
-          path: "/var/log/containers/*.log"
-      output:
-        es:
-          host: graylog-master.default
-          port: 9200
