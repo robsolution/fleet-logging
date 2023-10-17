@@ -3,13 +3,13 @@ helm:
   chart: fluent-bit
   repo: https://fluent.github.io/helm-charts
   version: "0.39.0"
-targetCustomizations:
-- name: gke-syseng-dev-01
-  clusterSelector:
-    matchLabels:
-      env: dev
-      service: infrastructure
-      location: gcp
+#targetCustomizations:
+#- name: gke-syseng-dev-01
+#  clusterSelector:
+#    matchLabels:
+#      env: dev
+#      service: infrastructure
+#      location: gcp
 #  helm:
 #    valuesFiles:
 #      - values/default.yaml
