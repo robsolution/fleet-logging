@@ -22,8 +22,6 @@ metadata:
   namespace: fleet-logging
 spec:
   repo: https://github.com/fluent/fluent-bit-kubernetes-logging
-  paths:
-    - fluent-bit/
   targets:
     - clusterSelector: {} # Isso irá selecionar todos os clusters
 ---
