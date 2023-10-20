@@ -1,4 +1,12 @@
-# Default values for fluent-bit.
+# Default values for fluent-bit on KORE.
+
+kore:
+  repository:
+    fluent-bit: ""
+    busybox: ""
+  graylog:
+    hostAddress: "graylog.kore.korewireless.com"
+    hostPort: "12201"
 
 # kind -- DaemonSet or Deployment
 kind: DaemonSet
@@ -24,8 +32,8 @@ testFramework:
     digest:
 
 imagePullSecrets: []
-nameOverride: "fleet-logging"
-fullnameOverride: "test"
+nameOverride: ""
+fullnameOverride: ""
 
 serviceAccount:
   create: true
@@ -393,8 +401,8 @@ config:
     [OUTPUT]
         Name gelf
         Match *
-        Host 192.168.15.11
-        Port 31156
+        Host {{ .Values.kore.graylog.hostAddress }}
+        Port {{ .Values.kore.graylog.hostPort }}
         Mode tcp
         Retry_Limit False
         Gelf_Short_Message_Key log

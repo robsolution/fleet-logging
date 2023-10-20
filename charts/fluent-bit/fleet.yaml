@@ -1,10 +1,10 @@
-namespace: fleet-logging
+namespace: fleet-default
 targetCustomizations:
 
 - name: dev
   helm:
     values:
-      serviceType: NodePort
+      serviceType: ClusterIP
       replicas: 1
   clusterSelector:
     matchLabels:
@@ -13,7 +13,7 @@ targetCustomizations:
 - name: test
   helm:
     values:
-      replicas: 3
+      replicas: 2
   clusterSelector:
     matchLabels:
       env: test
@@ -21,7 +21,7 @@ targetCustomizations:
 - name: prod
   helm:
     values:
-      serviceType: LoadBalancer
+      serviceType: ClusterIP
       replicas: 3
   clusterSelector:
     matchLabels:
