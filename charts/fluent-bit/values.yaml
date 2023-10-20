@@ -1,4 +1,6 @@
 # Default values for fluent-bit.
+fluent-bit:
+  fullname: "test-deploy"
 
 # kind -- DaemonSet or Deployment
 kind: DaemonSet
