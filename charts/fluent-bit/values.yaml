@@ -25,7 +25,7 @@ testFramework:
 
 imagePullSecrets: []
 nameOverride: "fleet-logging"
-fullnameOverride: ""
+fullnameOverride: "test"
 
 serviceAccount:
   create: true
