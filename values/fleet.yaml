@@ -1,1 +1,28 @@
+namespace: fleet-logging
+targetCustomizations:
 
+- name: dev
+  helm:
+    values:
+      serviceType: NodePort
+      replicas: 3
+  clusterSelector:
+    matchLabels:
+      env: dev
+
+- name: test
+  helm:
+    values:
+      replicas: 3
+  clusterSelector:
+    matchLabels:
+      env: test
+
+- name: prod
+  helm:
+    values:
+      serviceType: LoadBalancer
+      replicas: 3
+  clusterSelector:
+    matchLabels:
+      env: prod
