@@ -1,5 +1,5 @@
-#defaultNamespace: fleet-logging
-namespace: fleet-local
+defaultNamespace: fleet-logging
+#namespace: fleet-local
 helm:
   repo: https://fluent.github.io/helm-charts
   chart: fluent-bit
