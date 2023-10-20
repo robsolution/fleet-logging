@@ -24,7 +24,7 @@ testFramework:
     digest:
 
 imagePullSecrets: []
-nameOverride: ""
+nameOverride: "fleet-logging"
 fullnameOverride: ""
 
 serviceAccount:
