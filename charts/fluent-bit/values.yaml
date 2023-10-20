@@ -396,7 +396,6 @@ config:
         Host 192.168.15.11
         Port 31063
         Mode tcp
-        Logstash_Format On
         Retry_Limit False
         Gelf_Short_Message_Key log
 
