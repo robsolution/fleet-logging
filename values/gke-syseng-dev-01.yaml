@@ -1,8 +1,0 @@
-domainFilters:
-- 744434635913.gcp.k1
-extraArgs:
-- --google-zone-visibility=private
-- --google-project=gcp-kore-non-prod-svpc-prj-01  
-serviceAccount:
-  annotations:
-    iam.gke.io/gcp-service-account: external-dns-sa@kore-syseng-dev-01.iam.gserviceaccount.com
