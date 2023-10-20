@@ -5,7 +5,7 @@ targetCustomizations:
   helm:
     values:
       serviceType: NodePort
-      replicas: 3
+      replicas: 1
   clusterSelector:
     matchLabels:
       env: dev
