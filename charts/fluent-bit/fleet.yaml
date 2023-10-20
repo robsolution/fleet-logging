@@ -1,4 +1,5 @@
 defaultNamespace: fleet-logging
+namespace: fleet-logging
 targetCustomizations:
 
 - name: dev
