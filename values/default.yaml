@@ -1,3 +1,0 @@
-image:
-  repository: fluent/fluent-bit
-logFormat: json
