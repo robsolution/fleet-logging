@@ -2,7 +2,6 @@
 namespace: fleet-local
 helm:
   repo: https://fluent.github.io/helm-charts
-  releaseName: fluent-bit
   chart: fluent-bit
   version: "0.39.0"
 targetCustomizations:
