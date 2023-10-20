@@ -1,4 +1,4 @@
-defaultNamespace: fleet-default
+defaultNamespace: 
 targetCustomizations:
 
 - name: dev
